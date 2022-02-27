@@ -15,5 +15,16 @@ namespace TestePleno.Models
         public decimal Value { get; set; }
         public DateTime data { get; set; }
         public string Code { get; set; }
+
+
+        public Fare(string id, string OperatorCode, int status, decimal value, DateTime data, string code)
+        {
+            this.Status = status;
+            this.data = data;
+            this.Code = code;
+            this.Id = id;
+            this.OperatorCode = OperatorCode;
+            this.Value = value;
+        }
     }
 }

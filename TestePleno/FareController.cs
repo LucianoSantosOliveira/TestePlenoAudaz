@@ -13,10 +13,10 @@ namespace TestePleno
         private FareService FareService = new FareService();
 
 
-        //public void UpdateFareService(FareService fareService)
-        //{
-        //    this.FareService = fareService; 
-        //}
+        public void UpdateFareService(FareService fareService)
+        {
+            this.FareService = fareService; 
+        }
 
         public void UpdateOperatorService(OperatorService operatorService)
         {

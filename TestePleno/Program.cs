@@ -15,8 +15,9 @@ namespace TestePleno
 
             OperatorService OpService = new OperatorService();
 
-            var op = new Operator();
-            var fare = new Fare();
+            var op = new Operator("","",DateTime.Now);
+            var fare = new Fare("", "", 0, 0, DateTime.Now, "");
+            var fareController = new FareController();
 
             int fareCode = 100;
             int opCode = 200;
@@ -30,10 +31,9 @@ namespace TestePleno
                 fareCode += 1;
                 opCode += 1;
                 //fare.Id = GenerateNewguidFare;
-                fare.Id = Convert.ToString(fareCode);
+                fare.Code = Convert.ToString(fareCode);
                 fare.data = DateTime.Now;
 
-                op.Id = Convert.ToString(opCode);
                 //op.Id = GenerateNewguidOp;
 
                 Console.WriteLine("Informe o valor da tarifa a ser cadastrada:");
@@ -45,12 +45,13 @@ namespace TestePleno
                 Console.WriteLine("Exemplos: OP01, OP02, OP03...");
                 var operatorCodeInput = Console.ReadLine();
                 op.Code = operatorCodeInput;
+                fare.OperatorCode = operatorCodeInput;
                 
-                OpService.Create(op);
+                OpService.Create(new Operator(Convert.ToString(opCode), operatorCodeInput,DateTime.Now));
 
-                var fareController = new FareController();
+                
                 fareController.UpdateOperatorService(OpService);
-                fareController.CreateFare(fare, operatorCodeInput);
+                fareController.CreateFare(new Fare(Convert.ToString(fareCode), fare.OperatorCode,fare.Status,fare.Value,fare.data, fare.Code), operatorCodeInput);
 
                 Console.WriteLine("Tarifa cadastrada com sucesso!");
                 Console.WriteLine("Cadastrar nova tarifa ? S = 1 || N = 0 ");

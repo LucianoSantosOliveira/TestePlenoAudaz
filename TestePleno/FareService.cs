@@ -13,12 +13,12 @@ namespace TestePleno
 
         public void Create(Fare fare)
         {
-            _repository.Insert((IModel)fare);
+            _repository.Insert(fare);
         }
 
         public void Update(Fare fare)
         {
-            _repository.Update((IModel)fare);
+            _repository.Update(fare);
         }
 
         public Fare GetFareById(string fareId)
