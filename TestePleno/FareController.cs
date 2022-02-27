@@ -35,10 +35,11 @@ namespace TestePleno
             var selectop = _operatorService.GetOperatorByCode(operatorCode);
             var allfares = FareService.GetFares();
             bool cadastrarFare = true;
-
+            TimeSpan differenceEmDias;
             foreach(var fares in allfares)
             {
-                if(fares.OperatorCode == selectedOperator.Code && fares.Value == fare.Value)
+                differenceEmDias = fare.data - fares.data;
+                if (fares.OperatorCode == selectedOperator.Code && fares.Value == fare.Value && differenceEmDias.TotalDays < 180) 
                 {
                     cadastrarFare=false;
                     break;
