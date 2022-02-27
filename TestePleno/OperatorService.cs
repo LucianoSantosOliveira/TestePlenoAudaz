@@ -37,7 +37,14 @@ namespace TestePleno
 
         public void Create(Operator insertingOperator)
         {
-            _repository.Insert(insertingOperator);
+            if(_repository.Existe(insertingOperator.Code))
+            {               
+            }
+            else
+            {
+                _repository.Insert(insertingOperator);
+            }
+            
         }
 
         public void Update(Operator updatingOperator)

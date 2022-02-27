@@ -36,8 +36,14 @@ namespace TestePleno
 
         public T GetById<T>(string code)
         {
-            var model = _fakeDatabase.FirstOrDefault(savedModel => savedModel.Id == code);
+            var model = _fakeDatabase.FirstOrDefault(savedModel => savedModel.Code == code);
             return (T)model;
+        }
+
+        public bool Existe(string code)
+        {
+            var model = _fakeDatabase.FirstOrDefault(savedModel => savedModel.Code == code);
+            return model == null ? false:true;
         }
 
         public List<T> GetAll<T>()

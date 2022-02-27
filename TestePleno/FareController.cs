@@ -10,7 +10,7 @@ namespace TestePleno
     public class FareController
     {
         private OperatorService _operatorService;
-        private FareService FareService = new FareService();
+        public FareService FareService = new FareService();
 
 
         public void UpdateFareService(FareService fareService)
@@ -32,8 +32,33 @@ namespace TestePleno
         {
             var selectedOperator = _operatorService.GetOperatorByCode(operatorCode);
             fare.OperatorCode = selectedOperator.Code;
+            var selectop = _operatorService.GetOperatorByCode(operatorCode);
+            var allfares = FareService.GetFares();
+            bool cadastrarFare = true;
 
-            FareService.Create(fare);
+            foreach(var fares in allfares)
+            {
+                if(fares.OperatorCode == selectedOperator.Code && fares.Value == fare.Value)
+                {
+                    cadastrarFare=false;
+                    break;
+                }
+                else
+                {
+                    cadastrarFare = true;
+                }
+            }
+
+            if(cadastrarFare == true)
+            {
+                FareService.Create(fare);
+            }
+            else
+            {
+                Console.WriteLine("Existe Tarifa ativa com mesmo valor e com menos de 6 meses para este operador");
+                Console.ReadLine();
+            }
+            
         }
     }
 }

@@ -51,10 +51,15 @@ namespace TestePleno
 
                 
                 fareController.UpdateOperatorService(OpService);
-                fareController.CreateFare(new Fare(Convert.ToString(fareCode), fare.OperatorCode,fare.Status,fare.Value,fare.data, fare.Code), operatorCodeInput);
-
+                fareController.CreateFare(new Fare(Convert.ToString(fareCode), fare.OperatorCode,fare.Status,fare.Value,fare.data, fare.Code), operatorCodeInput);               
                 Console.WriteLine("Tarifa cadastrada com sucesso!");
                 Console.WriteLine("Cadastrar nova tarifa ? S = 1 || N = 0 ");
+
+                //foreach(var Tarifa in fareController.FareService.GetFares())
+                //{
+                //    Console.WriteLine(Tarifa.Code);
+                //}
+
                 continuar = Convert.ToInt16(Console.ReadLine());
             }
         }
