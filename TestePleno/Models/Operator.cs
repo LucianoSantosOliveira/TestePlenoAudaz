@@ -8,7 +8,8 @@ namespace TestePleno.Models
 {
     public class Operator : IModel
     {
-        //public Guid Id { get; set; }
+        public string Id { get; set; }
         public string Code { get; set; }
+        public DateTime data { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }

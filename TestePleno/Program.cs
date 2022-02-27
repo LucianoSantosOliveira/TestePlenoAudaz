@@ -30,10 +30,10 @@ namespace TestePleno
                 fareCode += 1;
                 opCode += 1;
                 //fare.Id = GenerateNewguidFare;
-                fare.Code = Convert.ToString(fareCode);
-                fare.Data = DateTime.Now;
+                fare.Id = Convert.ToString(fareCode);
+                fare.data = DateTime.Now;
 
-                op.Code = Convert.ToString(opCode);
+                op.Id = Convert.ToString(opCode);
                 //op.Id = GenerateNewguidOp;
 
                 Console.WriteLine("Informe o valor da tarifa a ser cadastrada:");

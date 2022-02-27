@@ -16,16 +16,17 @@ namespace TestePleno
             if (model.Code == "")
                 throw new Exception("Não é possível salver um registro com Id não preenchido");
 
-            var modelAlreadyExists = _fakeDatabase.Any(savedModel => savedModel.Code == model.Code);
-            if (modelAlreadyExists)
-                throw new Exception($"Já existe um registro para a entidade '{model.GetType().Name}' com o Id '{model.Code}'");
+            //var modelAlreadyExists = _fakeDatabase.Any(savedModel => savedModel.Id == model.Id);
+            //if (modelAlreadyExists)
+            //    throw new Exception($"Já existe um registro para a entidade '{model.GetType().Name}' com o Id '{model.Code}'");
+
 
             _fakeDatabase.Add(model);
         }
 
         public void Update(IModel model)
         {
-            var updatingModel = _fakeDatabase.FirstOrDefault(savedModel => savedModel.Code == model.Code);
+            var updatingModel = _fakeDatabase.FirstOrDefault(savedModel => savedModel.Id == model.Id);
             if (updatingModel == null)
                 throw new Exception($"Não há registros para a entidade '{model.GetType().Name}' com Id '{model.Code}'");
 
@@ -35,7 +36,7 @@ namespace TestePleno
 
         public T GetById<T>(string code)
         {
-            var model = _fakeDatabase.FirstOrDefault(savedModel => savedModel.Code == code);
+            var model = _fakeDatabase.FirstOrDefault(savedModel => savedModel.Id == code);
             return (T)model;
         }
 

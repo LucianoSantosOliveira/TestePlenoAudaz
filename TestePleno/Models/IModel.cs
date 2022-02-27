@@ -8,7 +8,8 @@ namespace TestePleno.Models
 {
     public interface IModel
     {
-        //Guid Id { get; set; }
+        string Id { get; set; }
         String Code { get; set; }
+        DateTime data { get; set; }
     }
 }

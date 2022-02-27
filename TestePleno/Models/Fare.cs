@@ -8,12 +8,12 @@ namespace TestePleno.Models
 {
     public class Fare : IModel
     {
-       // public Guid Id { get; set; }
+        public string Id { get; set; }
         //public Guid OperatorId { get; set; }
         public string OperatorCode { get; set; }
         public int Status { get; set; }
         public decimal Value { get; set; }
-        public DateTime Data { get; set; }
+        public DateTime data { get; set; }
         public string Code { get; set; }
     }
 }
