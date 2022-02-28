@@ -1,0 +1,8 @@
+E:\dowloads\TestePlenoAudaz-master\TestePlenoAudaz-master\TestePleno\bin\Debug\TestePleno.exe.config
+E:\dowloads\TestePlenoAudaz-master\TestePlenoAudaz-master\TestePleno\bin\Debug\TestePleno.exe
+E:\dowloads\TestePlenoAudaz-master\TestePlenoAudaz-master\TestePleno\bin\Debug\TestePleno.pdb
+E:\dowloads\TestePlenoAudaz-master\TestePlenoAudaz-master\TestePleno\obj\Debug\TestePleno.csproj.AssemblyReference.cache
+E:\dowloads\TestePlenoAudaz-master\TestePlenoAudaz-master\TestePleno\obj\Debug\TestePleno.csproj.SuggestedBindingRedirects.cache
+E:\dowloads\TestePlenoAudaz-master\TestePlenoAudaz-master\TestePleno\obj\Debug\TestePleno.csproj.CoreCompileInputs.cache
+E:\dowloads\TestePlenoAudaz-master\TestePlenoAudaz-master\TestePleno\obj\Debug\TestePleno.exe
+E:\dowloads\TestePlenoAudaz-master\TestePlenoAudaz-master\TestePleno\obj\Debug\TestePleno.pdb
