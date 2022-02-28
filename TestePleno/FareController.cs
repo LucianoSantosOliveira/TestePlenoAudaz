@@ -46,6 +46,7 @@ namespace TestePleno
                 }
                 else
                 {
+                    fares.Status = 0;
                     cadastrarFare = true;
                 }
             }
