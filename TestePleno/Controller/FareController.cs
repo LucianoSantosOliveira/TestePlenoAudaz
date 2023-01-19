@@ -28,28 +28,40 @@ namespace TestePleno
             _operatorService = new OperatorService();
         }
 
-        public void CreateFare(Fare fare, string operatorCode)
+        public bool CreateFare(Fare fare, string operatorCode)
         {
             var selectedOperator = _operatorService.GetOperatorByCode(operatorCode);
             fare.OperatorCode = selectedOperator.Code;
             var selectop = _operatorService.GetOperatorByCode(operatorCode);
             var allfares = FareService.GetFares();
             bool cadastrarFare = true;
+
+            var FaresForThisOperatorAndValue = from f in allfares
+                                               where f.OperatorCode == selectedOperator.Code && f.Value == fare.Value
+                                               select f;
+
+            var FaresList = FaresForThisOperatorAndValue.ToList();
+
             TimeSpan differenceEmDias;
-            foreach(var fares in allfares)
+
+            if (FaresList.Count() > 0)
             {
-                differenceEmDias = fare.data - fares.data;
-                if (fares.OperatorCode == selectedOperator.Code && fares.Value == fare.Value && differenceEmDias.TotalDays < 180) 
+                differenceEmDias = fare.data - FaresForThisOperatorAndValue.FirstOrDefault().data;
+                if (FaresForThisOperatorAndValue.FirstOrDefault().OperatorCode == selectedOperator.Code && FaresForThisOperatorAndValue.FirstOrDefault().Value == fare.Value && differenceEmDias.TotalDays < 180)
                 {
-                    cadastrarFare=false;
-                    break;
+                    cadastrarFare = false;
                 }
                 else
                 {
-                    fares.Status = 0;
+                    FaresForThisOperatorAndValue.FirstOrDefault().Status = 0;
                     cadastrarFare = true;
                 }
             }
+            else
+                cadastrarFare = true;
+
+            
+
 
             if(cadastrarFare == true)
             {
@@ -60,7 +72,7 @@ namespace TestePleno
                 Console.WriteLine("Existe Tarifa ativa com mesmo valor e com menos de 6 meses para este operador");
                 Console.ReadLine();
             }
-            
+            return cadastrarFare;
         }
     }
 }
